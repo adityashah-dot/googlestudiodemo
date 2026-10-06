@@ -258,7 +258,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onOpenApply, onOpenHelpDesk 
             <ShieldCheck className="w-4 h-4 text-amber-600" />
             UGC-DEB • AICTE • NAAC A++ ACCREDITED UNIVERSITIES
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-[#000f22] tracking-tight leading-tight">
+          <h1 className="text-3xl md:text-5xl font-bold font-sans text-[#000f22] tracking-tight leading-tight">
             Discover, Compare &amp; Enroll in India's Top Online Universities
           </h1>
           <p className="text-[#43474d] text-[15px] md:text-[16px] max-w-2xl mx-auto leading-relaxed">

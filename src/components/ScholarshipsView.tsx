@@ -17,9 +17,10 @@ import {
 interface ScholarshipsViewProps {
   onOpenApply: (courseId?: string) => void;
   onOpenHelpDesk: () => void;
+  universityNavigation?: React.ReactNode;
 }
 
-export const ScholarshipsView: React.FC<ScholarshipsViewProps> = ({ onOpenApply, onOpenHelpDesk }) => {
+export const ScholarshipsView: React.FC<ScholarshipsViewProps> = ({ onOpenApply, onOpenHelpDesk, universityNavigation }) => {
   const [calcCourseId, setCalcCourseId] = useState('mba');
   const [marks, setMarks] = useState<number>(78);
   const [isDefense, setIsDefense] = useState(false);
@@ -72,13 +73,15 @@ export const ScholarshipsView: React.FC<ScholarshipsViewProps> = ({ onOpenApply,
             <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
             Fee Waivers & Concessions 2026
           </span>
-          <h1 className="section-title mt-3 text-3xl sm:text-4xl font-extrabold text-[#000f22] tracking-tight font-sans">
+          <h1 className="section-title mt-3 text-3xl sm:text-4xl font-bold text-[#000f22] tracking-tight font-sans">
             Scholarships & Fee Discounts
           </h1>
           <p className="section-description text-xs sm:text-sm text-[#43474d] leading-relaxed">
             Check your eligibility for university fee concessions. Discounts are offered for high academic scorers, serving military and defense personnel, early enrollment applicants, and LPU alumni.
           </p>
         </div>
+
+        {universityNavigation}
 
         {/* INTERACTIVE SCHOLARSHIP CALCULATOR */}
         <section className="page-section card bg-white rounded-2xl border-2 border-[#115eaf]/30 shadow-lg">

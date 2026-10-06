@@ -107,11 +107,9 @@ export const CollegeDetailView: React.FC<CollegeDetailViewProps> = ({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // LPU Online — section tabs at the top (original layout); content switches on click
-  return (
-    <div>
-      {/* LPU Section Tabs — top of page */}
-      <div className="sticky top-[68px] z-30 bg-white border-b border-[#e7eeff] shadow-xs">
+  // LPU Online section navigation
+  const universityNavigation = (
+    <div className="sticky top-[68px] z-30 bg-white border-b border-[#e7eeff] shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {LPU_TABS.map((tab) => {
@@ -142,7 +140,10 @@ export const CollegeDetailView: React.FC<CollegeDetailViewProps> = ({
           </div>
         </div>
       </div>
+  );
 
+  return (
+    <div>
       {/* Section Content */}
       {lpuSection === 'overview' && (
         <OverviewView
@@ -150,6 +151,7 @@ export const CollegeDetailView: React.FC<CollegeDetailViewProps> = ({
           onOpenApply={onOpenApply}
           onOpenBrochure={onOpenBrochure}
           onOpenHelpDesk={onOpenHelpDesk}
+          universityNavigation={universityNavigation}
         />
       )}
 
@@ -160,6 +162,7 @@ export const CollegeDetailView: React.FC<CollegeDetailViewProps> = ({
           onOpenBrochure={onOpenBrochure}
           onOpenEmi={onOpenEmi}
           onOpenHelpDesk={onOpenHelpDesk}
+          universityNavigation={universityNavigation}
         />
       )}
 
@@ -170,6 +173,7 @@ export const CollegeDetailView: React.FC<CollegeDetailViewProps> = ({
           onOpenBrochure={() => onOpenBrochure()}
           onOpenHelpDesk={onOpenHelpDesk}
           onOpenEmi={() => onOpenEmi()}
+          universityNavigation={universityNavigation}
         />
       )}
 
@@ -177,6 +181,7 @@ export const CollegeDetailView: React.FC<CollegeDetailViewProps> = ({
         <ScholarshipsView
           onOpenApply={onOpenApply}
           onOpenHelpDesk={onOpenHelpDesk}
+          universityNavigation={universityNavigation}
         />
       )}
     </div>

@@ -23,6 +23,7 @@ interface AdmissionViewProps {
   onOpenBrochure: () => void;
   onOpenHelpDesk: () => void;
   onOpenEmi: () => void;
+  universityNavigation?: React.ReactNode;
 }
 
 export const AdmissionView: React.FC<AdmissionViewProps> = ({
@@ -30,7 +31,8 @@ export const AdmissionView: React.FC<AdmissionViewProps> = ({
   onOpenApply,
   onOpenBrochure,
   onOpenHelpDesk,
-  onOpenEmi
+  onOpenEmi,
+  universityNavigation
 }) => {
   const [callbackName, setCallbackName] = useState('');
   const [callbackPhone, setCallbackPhone] = useState('');
@@ -82,7 +84,7 @@ export const AdmissionView: React.FC<AdmissionViewProps> = ({
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl font-extrabold text-[#000f22] tracking-tight font-sans">
+              <h1 className="text-3xl sm:text-4xl font-bold text-[#000f22] tracking-tight font-sans">
                 LPU Online Admission Process 2026
               </h1>
 
@@ -136,7 +138,6 @@ export const AdmissionView: React.FC<AdmissionViewProps> = ({
           {/* Right Column: Urgent Notice Session Closing Card */}
           <div className="lg:col-span-4 bg-[#0b2540] text-white rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-xl relative overflow-hidden">
             <div className="absolute -right-8 -top-8 w-32 h-32 bg-[#115eaf]/30 rounded-full blur-2xl pointer-events-none"></div>
-
             <div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-[11px] font-bold tracking-wide uppercase">
                 <Clock className="w-3.5 h-3.5" />
@@ -183,6 +184,8 @@ export const AdmissionView: React.FC<AdmissionViewProps> = ({
           </div>
         </section>
 
+        {universityNavigation}
+
         {/* ADMISSION HIGHLIGHTS METRIC RIBBON (4 Columns) */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-white border border-[#e7eeff] p-4 rounded-2xl flex items-center space-x-3 shadow-xs">
@@ -228,11 +231,11 @@ export const AdmissionView: React.FC<AdmissionViewProps> = ({
 
         {/* STEP-BY-STEP ADMISSION PROCESS 2026 (From API: Section 4) */}
         <section className="page-section">
-          <div className="text-center max-w-3xl mx-auto">
+          <div className="text-left max-w-3xl">
             <span className="text-xs font-bold text-[#115eaf] uppercase tracking-wider block">
               Official Admission Flow
             </span>
-            <h2 className="section-title text-2xl sm:text-3xl font-extrabold text-[#000f22] font-sans">
+            <h2 className="section-title text-2xl sm:text-3xl font-semibold text-[#000f22] font-sans">
               Step-by-step admission process 2026
             </h2>
             <p className="section-description text-xs sm:text-sm text-[#43474d]">
@@ -272,7 +275,7 @@ export const AdmissionView: React.FC<AdmissionViewProps> = ({
         {/* ELIGIBILITY & SELECTION CRITERIA TABLE (From API: Section 3) */}
         <section className="page-section card bg-white border border-[#e7eeff] rounded-2xl shadow-xs">
           <div className="flex flex-col md:flex-row justify-between md:items-center gap-2 border-b border-[#e7eeff] pb-4">
-            <div>
+            <div className="text-left">
               <span className="text-xs font-bold text-[#115eaf] uppercase tracking-wider block">Admission Criteria</span>
               <h2 className="section-title text-xl sm:text-2xl font-extrabold text-[#000f22] font-sans">
                 LPU Online Eligibility and Selection Criteria

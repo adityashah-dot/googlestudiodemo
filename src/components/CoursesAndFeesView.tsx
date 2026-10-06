@@ -32,6 +32,7 @@ interface CoursesAndFeesViewProps {
   onOpenBrochure: (course?: Course) => void;
   onOpenEmi: (courseId?: string) => void;
   onOpenHelpDesk: () => void;
+  universityNavigation?: React.ReactNode;
 }
 
 export const CoursesAndFeesView: React.FC<CoursesAndFeesViewProps> = ({
@@ -39,7 +40,8 @@ export const CoursesAndFeesView: React.FC<CoursesAndFeesViewProps> = ({
   onOpenApply,
   onOpenBrochure,
   onOpenEmi,
-  onOpenHelpDesk
+  onOpenHelpDesk,
+  universityNavigation
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<CourseCategory>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -238,6 +240,8 @@ export const CoursesAndFeesView: React.FC<CoursesAndFeesViewProps> = ({
           </div>
         </div>
       </section>
+
+      {universityNavigation}
 
       {/* INTERACTIVE FILTER STRIP & SEARCH */}
       <section className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border-y border-[#e7eeff] shadow-xs py-3.5">

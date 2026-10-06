@@ -65,13 +65,15 @@ interface OverviewViewProps {
   onOpenApply: (courseId?: string) => void;
   onOpenBrochure: (course?: Course) => void;
   onOpenHelpDesk: () => void;
+  universityNavigation?: React.ReactNode;
 }
 
 export const OverviewView: React.FC<OverviewViewProps> = ({
   onSelectCourse,
   onOpenApply,
   onOpenBrochure,
-  onOpenHelpDesk
+  onOpenHelpDesk,
+  universityNavigation
 }) => {
   const [counselingForm, setCounselingForm] = useState({
     name: '',
@@ -317,6 +319,8 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
         </div>
       </section>
 
+      {universityNavigation}
+
       {/* MAIN CONTENT */}
       <div className="content-block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3">
         <div className="space-y-8">
@@ -445,7 +449,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
             {/* 3. Courses & Fees 2026 */}
             <section id="courses-fees" className="page-section card bg-white rounded-2xl border border-[#e7eeff] shadow-xs">
               <div>
-                <h2 className="section-title text-2xl font-extrabold text-[#000f22] font-sans">
+                <h2 className="section-title text-2xl font-bold text-[#000f22] font-sans">
                   LPU Online Courses and Fees 2026
                 </h2>
                 <p className="section-description text-sm text-[#43474d] leading-relaxed font-normal">
