@@ -21,7 +21,8 @@ import {
   MonitorCheck,
   Layers,
   Search,
-  Clock
+  Clock,
+  ArrowRight,
 } from 'lucide-react';
 
 const RECRUITER_LOGOS: { name: string; src: string }[] = [
@@ -237,14 +238,6 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
               <h1 className="section-title text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight font-sans text-[#000f22]">
                 {DEGREEFYD_LPU_API.title}
               </h1>
-              <p className="section-description text-xs sm:text-sm text-[#43474d] font-normal flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#115eaf] shrink-0" />
-                {DEGREEFYD_LPU_API.location} · Private · Est. {DEGREEFYD_LPU_API.established} ·{' '}
-                <span className="inline-flex items-center gap-0.5 font-bold text-[#B45309]">
-                  <Star className="w-3 h-3 fill-[#D97706] text-[#D97706]" />
-                  {DEGREEFYD_LPU_API.rating}
-                </span>
-              </p>
               <div className="flex flex-wrap items-center gap-2 mt-3">
                 <span className="px-2.5 py-1 rounded-full bg-[#f0f3ff] border border-[#d5e3ff] text-[#115eaf] text-[11px] font-bold">#31 NIRF Rank</span>
                 <span className="px-2.5 py-1 rounded-full bg-[#f0f3ff] border border-[#d5e3ff] text-[#115eaf] text-[11px] font-bold">NAAC A++</span>
@@ -254,61 +247,71 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
             </div>
           </div>
 
-          {/* College Body: Text + Image side by side */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-[7.5px] items-center mt-[7.5px]">
-            <div className="space-y-4">
-            <p className="text-sm text-[#2d3137] leading-relaxed font-normal">
-              {DEGREEFYD_LPU_API.hero.description}
-            </p>
-            <p className="text-sm text-[#2d3137] leading-relaxed font-normal">
-              {DEGREEFYD_LPU_API.hero.heroSub}
-            </p>
-
-              <div className="flex flex-wrap items-center gap-3 pt-1">
-                <button
-                  onClick={() => onOpenBrochure()}
-                  className="px-5 py-2.5 rounded-xl bg-white text-[#115eaf] border border-[#115eaf] text-xs sm:text-sm font-bold hover:bg-[#f0f3ff] active:scale-95 transition-all flex items-center gap-2"
-                >
-                  <Download className="w-4 h-4" />
-                  Brochure
-                </button>
-                <button
-                  onClick={() => onOpenApply()}
-                  className="px-6 py-2.5 rounded-xl bg-[#115eaf] text-white text-xs sm:text-sm font-bold shadow hover:bg-[#004689] active:scale-95 transition-all flex items-center gap-2"
-                >
-                  <CheckCircle className="w-4 h-4" />
-                  Apply Now
-                </button>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                <div className="bg-[#f0f3ff] border border-[#e7eeff] p-3 rounded-xl text-center">
-                  <span className="block text-sm font-bold text-[#000f22] font-sans">₹46K – ₹1.86L</span>
-                  <span className="text-[10px] text-[#74777e]">Fee Range</span>
-                </div>
-                <div className="bg-[#f0f3ff] border border-[#e7eeff] p-3 rounded-xl text-center">
-                  <span className="block text-sm font-bold text-[#115eaf] font-sans">1 – 3 Years</span>
-                  <span className="text-[10px] text-[#74777e]">Duration</span>
-                </div>
-                <div className="bg-[#f0f3ff] border border-[#e7eeff] p-3 rounded-xl text-center">
-                  <span className="block text-sm font-bold text-[#000f22] font-sans">Online</span>
-                  <span className="text-[10px] text-[#74777e]">Semester-based</span>
-                </div>
-                <div className="bg-[#f0f3ff] border border-[#e7eeff] p-3 rounded-xl text-center">
-                  <span className="block text-sm font-bold text-[#B45309] font-sans">90%</span>
-                  <span className="text-[10px] text-[#74777e]">Placement Rate</span>
-                </div>
-              </div>
+          {/* Body: location + text left; image top-aligned to location line */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-4 items-start mt-4">
+            <div className="lg:col-span-7 space-y-3">
+              <p className="section-description text-xs sm:text-sm text-[#43474d] font-normal flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#115eaf] shrink-0" />
+                {DEGREEFYD_LPU_API.location} · Private · Est. {DEGREEFYD_LPU_API.established} ·{' '}
+                <span className="inline-flex items-center gap-0.5 font-bold text-[#B45309]">
+                  <Star className="w-3 h-3 fill-[#D97706] text-[#D97706]" />
+                  {DEGREEFYD_LPU_API.rating}
+                </span>
+              </p>
+              <p className="text-sm text-[#2d3137] leading-relaxed font-normal">
+                {DEGREEFYD_LPU_API.hero.description}
+              </p>
+              <p className="text-sm text-[#2d3137] leading-relaxed font-normal">
+                {DEGREEFYD_LPU_API.hero.heroSub}
+              </p>
             </div>
 
-            {/* Right: Campus Image */}
-            <div className="relative h-56 sm:h-72 lg:h-80 rounded-2xl overflow-hidden border border-[#e7eeff]">
-              <img
-                src={DEGREEFYD_LPU_API.hero.backgroundImage}
-                alt="Lovely Professional University Campus"
-                className="w-full h-full object-cover"
-              />
+            {/* Right: Campus Image — top aligned with location line; 50px to Free Apply */}
+            <div className="lg:col-span-5 lg:mr-[50px]">
+              <div className="rounded-2xl overflow-hidden border border-[#e7eeff] shadow-xs bg-[#f9f9ff]">
+                <img
+                  src={DEGREEFYD_LPU_API.hero.backgroundImage}
+                  alt="Lovely Professional University Campus"
+                  className="w-full h-48 sm:h-60 lg:h-64 object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Stats + Brochure + Apply Now — same line; 100px from Free Apply edge */}
+          <div className="flex flex-wrap items-stretch gap-3 mt-5 lg:mr-[100px]">
+            <div className="bg-[#f0f3ff] border border-[#e7eeff] px-4 py-2.5 rounded-xl text-center min-w-[110px]">
+              <span className="block text-sm font-bold text-[#000f22] font-sans">₹46K – ₹1.86L</span>
+              <span className="text-[10px] text-[#74777e]">Fee Range</span>
+            </div>
+            <div className="bg-[#f0f3ff] border border-[#e7eeff] px-4 py-2.5 rounded-xl text-center min-w-[110px]">
+              <span className="block text-sm font-bold text-[#115eaf] font-sans">1 – 3 Years</span>
+              <span className="text-[10px] text-[#74777e]">Duration</span>
+            </div>
+            <div className="bg-[#f0f3ff] border border-[#e7eeff] px-4 py-2.5 rounded-xl text-center min-w-[110px]">
+              <span className="block text-sm font-bold text-[#000f22] font-sans">Online</span>
+              <span className="text-[10px] text-[#74777e]">Semester-based</span>
+            </div>
+            <div className="bg-[#f0f3ff] border border-[#e7eeff] px-4 py-2.5 rounded-xl text-center min-w-[110px]">
+              <span className="block text-sm font-bold text-[#B45309] font-sans">90%</span>
+              <span className="text-[10px] text-[#74777e]">Placement Rate</span>
+            </div>
+            <div className="flex items-center gap-3 ml-auto">
+              <button
+                onClick={() => onOpenBrochure()}
+                className="px-5 py-2.5 rounded-xl bg-white text-[#115eaf] border border-[#115eaf] text-xs sm:text-sm font-bold hover:bg-[#f0f3ff] active:scale-95 transition-all flex items-center justify-center gap-2"
+              >
+                <Download className="w-4 h-4" />
+                Brochure
+              </button>
+              <button
+                onClick={() => onOpenApply()}
+                className="px-6 py-2.5 rounded-xl bg-[#115eaf] text-white text-xs sm:text-sm font-bold shadow hover:bg-[#004689] active:scale-95 transition-all flex items-center justify-center gap-2"
+              >
+                Apply Now
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>

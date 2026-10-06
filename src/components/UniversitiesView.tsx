@@ -219,18 +219,15 @@ export const UniversitiesView: React.FC<UniversitiesViewProps> = ({
       <section className="bg-gradient-to-b from-[#f0f3ff] via-white to-[#f9f9ff] border-b border-[#e7eeff] pt-8 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-7">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-white rounded-full border border-[#d5e3ff] shadow-xs mb-3">
-              <span className="w-2 h-2 rounded-full bg-[#115eaf] animate-pulse" />
-              <span className="text-[11px] font-medium text-[#43474d]">
-                Accredited by UGC, AICTE &amp; NAAC
-              </span>
-              <span className="text-[#c4c6ce]">|</span>
-              <span className="text-[11px] font-bold text-[#115eaf]">Session 2026-27 Open</span>
+            <div className="mb-3 text-[11px] font-medium text-[#43474d]">
+              <span className="text-[#115eaf] font-semibold">Accredited by UGC, AICTE &amp; NAAC</span>
+              <span className="text-[#c4c6ce] mx-2">|</span>
+              <span className="text-[#115eaf] font-semibold">Session 2026-27 Open</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#000f22] tracking-tight leading-tight">
+            <h1 className="font-sans text-2xl sm:text-[32px] lg:text-[36px] font-bold text-[#000f22] tracking-tight leading-snug">
               Explore Top UGC-DEB Approved Online Universities in India
             </h1>
-            <p className="text-sm text-[#43474d] font-normal leading-relaxed mt-2.5 max-w-2xl mx-auto">
+            <p className="font-sans text-sm text-[#43474d] font-normal leading-relaxed mt-2.5 max-w-2xl mx-auto">
               Compare verified universities, programs, fees,
               <br className="hidden sm:block" /> and admission details — all in one place.
             </p>
