@@ -70,8 +70,8 @@ export const ApplyOnlineModal: React.FC<ApplyOnlineModalProps> = ({
             <span className="text-[11px] font-bold text-[#115eaf] uppercase tracking-wider block">
               Spring 2026 Admissions Desk
             </span>
-            <h3 className="text-lg font-bold text-[#000f22] font-sans">
-              LPU Online Degree Application
+            <h3 className="text-lg font-semibold text-[#000f22] font-sans">
+              Please provide your details to start your application
             </h3>
           </div>
           <button 

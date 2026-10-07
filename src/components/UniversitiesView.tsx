@@ -604,7 +604,7 @@ export const UniversitiesView: React.FC<UniversitiesViewProps> = ({
                           <span className="text-[#B45309] font-semibold">{u.rankNote}</span>
                         </p>
 
-                        <div className="flex flex-wrap items-center gap-2 mt-2.5">
+                        <div className={`flex flex-wrap items-center ${u.isLpu || u.id === 'cu-online' ? 'gap-1.5' : 'gap-2'} mt-2.5`}>
                           <span className="px-2.5 py-1 bg-amber-50 text-amber-900 border border-amber-200 rounded-lg text-[11px] font-semibold flex items-center gap-1 shadow-xs">
                             <Star className="w-3 h-3 text-amber-600 fill-amber-500" />
                             {u.naac}

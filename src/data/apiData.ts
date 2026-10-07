@@ -165,7 +165,7 @@ export const DEGREEFYD_LPU_API = {
       rankNote: "Ranked #31 by NIRF 2024",
       highlight: { text: "Verified 2026", tone: "emerald" as const },
       naac: "NAAC A++ (3.68/4)",
-      approvals: ["UGC-DEB Entitled", "AICTE Approved", "WES Recognized (USA/Canada)"],
+      approvals: ["UGC-DEB Entitled", "AICTE Approved"],
       feeLabel: "₹1,40,000",
       emi: "₹5,833/month",
       specs: [
@@ -186,7 +186,7 @@ export const DEGREEFYD_LPU_API = {
       rankNote: "Ranked #32 by NIRF 2024",
       highlight: { text: "QS World Ranked", tone: "blue" as const },
       naac: "NAAC A+ Accredited",
-      approvals: ["UGC-DEB Entitled", "AICTE Approved", "Harvard ManageMentor Access"],
+      approvals: ["UGC-DEB Entitled", "AICTE Approved"],
       feeLabel: "₹1,35,000",
       emi: "₹4,500/month",
       specs: [
@@ -206,7 +206,7 @@ export const DEGREEFYD_LPU_API = {
       rankNote: "NIRF Rank #32 · QS Online MBA Top 10 Asia-Pacific",
       highlight: { text: "India's 1st Online Univ", tone: "amber" as const },
       naac: "NAAC A+ Grade",
-      approvals: ["UGC-DEB Entitled", "WES (USA & Canada)", "QAA (UK) Certified"],
+      approvals: ["UGC-DEB Entitled", "WES (USA & Canada)"],
       feeLabel: "₹50,000 – ₹2,50,000",
       emi: "Zero-Cost EMI",
       rating: "4.7 / 5",
@@ -248,7 +248,7 @@ export const DEGREEFYD_LPU_API = {
       rankNote: "Silicon Valley Hub Faculty",
       highlight: { text: "60+ Modern Electives", tone: "emerald" as const },
       naac: "NAAC A++ (3.71)",
-      approvals: ["UGC-DEB Approved", "LinkedIn Learning Bundled", "ACCA / CIMA Accredited"],
+      approvals: ["UGC-DEB Approved", "LinkedIn Learning Bundled"],
       feeLabel: "₹1,50,000",
       emi: "₹6,250/month",
       specs: [

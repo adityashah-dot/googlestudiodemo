@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, BookOpen, GraduationCap, LayoutDashboard, Award, MonitorSmartphone } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { OverviewView } from './OverviewView';
 import { AdmissionView } from './AdmissionView';
 import { ScholarshipsView } from './ScholarshipsView';
@@ -31,11 +31,11 @@ const SLUG_ALIASES: Record<string, string> = {
   'amity-university-online': 'amity-online',
 };
 
-const LPU_TABS: { id: Exclude<LpuSection, 'lms'>; label: string; icon: React.ElementType }[] = [
-  { id: 'overview', label: 'Overview', icon: LayoutDashboard },
-  { id: 'courses', label: 'Courses', icon: BookOpen },
-  { id: 'admission', label: 'Admission', icon: GraduationCap },
-  { id: 'scholarships', label: 'Scholarships', icon: Award },
+const LPU_TABS: { id: Exclude<LpuSection, 'lms'>; label: string; icon: string }[] = [
+  { id: 'overview', label: 'Overview', icon: 'grid_view' },
+  { id: 'courses', label: 'Courses', icon: 'menu_book' },
+  { id: 'admission', label: 'Admission', icon: 'school' },
+  { id: 'scholarships', label: 'Scholarships', icon: 'workspace_premium' },
 ];
 
 const parseSection = (value: string | null): LpuSection => {
@@ -113,28 +113,27 @@ export const CollegeDetailView: React.FC<CollegeDetailViewProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {LPU_TABS.map((tab) => {
-              const Icon = tab.icon;
               const isActive = lpuSection === tab.id;
               return (
                 <button
                   key={tab.id}
                   onClick={() => handleTabClick(tab.id)}
-                  className={`shrink-0 flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-colors ${
+                  className={`shrink-0 flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-lg text-xs sm:text-sm transition-colors ${
                     isActive
-                      ? 'bg-[#115eaf] text-white'
-                      : 'text-[#43474d] hover:bg-[#f0f3ff] hover:text-[#115eaf]'
+                      ? 'bg-[#115eaf] text-white font-semibold'
+                      : 'text-[#43474d] font-medium hover:bg-[#f0f3ff] hover:text-[#115eaf]'
                   }`}
                 >
-                  <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <span className="material-symbols-outlined text-[16px] sm:text-[18px] leading-none">{tab.icon}</span>
                   <span>{tab.label}</span>
                 </button>
               );
             })}
             <button
               onClick={() => handleTabClick('lms')}
-              className="shrink-0 flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-colors text-[#43474d] hover:bg-[#f0f3ff] hover:text-[#115eaf]"
-            >
-              <MonitorSmartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            className="shrink-0 flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors text-[#43474d] hover:bg-[#f0f3ff] hover:text-[#115eaf]"
+          >
+            <span className="material-symbols-outlined text-[16px] sm:text-[18px] leading-none">devices</span>
               <span>LMS Portal</span>
             </button>
           </div>

@@ -3,18 +3,12 @@ import { Course } from '../types';
 import { COURSES_DATA } from '../data/coursesData';
 import { DEGREEFYD_LPU_API } from '../data/apiData';
 import { 
-  CheckCircle, 
-  ChevronRight, 
-  Download, 
-  Clock, 
-  Calendar, 
-  FileText, 
-  CreditCard, 
-  ShieldCheck, 
-  PhoneCall, 
-  ArrowRight,
-  Award,
-  Laptop
+  CheckCircle,
+  ChevronRight,
+  Download,
+  Calendar,
+  FileText,
+  PhoneCall
 } from 'lucide-react';
 
 interface AdmissionViewProps {
@@ -27,11 +21,9 @@ interface AdmissionViewProps {
 }
 
 export const AdmissionView: React.FC<AdmissionViewProps> = ({
-  onSelectCourse,
   onOpenApply,
   onOpenBrochure,
   onOpenHelpDesk,
-  onOpenEmi,
   universityNavigation
 }) => {
   const [callbackName, setCallbackName] = useState('');
@@ -63,209 +55,87 @@ export const AdmissionView: React.FC<AdmissionViewProps> = ({
       </div>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-        {/* HERO SECTION & SESSION CLOSING ALERT BENTO */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch" id="overview">
-          {/* Left Column: Authority & Program Details */}
-          <div className="lg:col-span-8 bg-white rounded-2xl border border-[#e7eeff] p-6 sm:p-8 flex flex-col justify-between shadow-xs relative overflow-hidden">
-            <div className="space-y-4">
-              {/* Verification Badges */}
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f0f3ff] text-xs text-[#115eaf] font-bold">
-                  <CheckCircle className="w-3.5 h-3.5 text-[#115eaf]" />
-                  UGC-DEB Entitled Program
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFFBEB] text-[#92400E] border border-[#FDE68A] text-xs font-bold">
-                  <Award className="w-3.5 h-3.5 text-[#D97706]" />
-                  NAAC A++ Graded University
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e7eeff] text-[#000f22] text-xs font-normal">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  WES Recognized Worldwide
-                </span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl font-bold text-[#000f22] tracking-tight font-sans">
-                LPU Online Admission Process 2026
-              </h1>
-
-              <p className="text-sm sm:text-base text-[#43474d] max-w-2xl leading-relaxed">
-                {DEGREEFYD_LPU_API.admissionProcess.intro}
-              </p>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <button
-                  onClick={() => onOpenApply()}
-                  className="bg-[#115eaf] text-white px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm hover:bg-[#004689] active:scale-95 transition-all shadow flex items-center gap-2"
-                >
-                  <CheckCircle className="w-4 h-4" />
-                  <span>Start Online Application</span>
-                </button>
-                <button
-                  onClick={onOpenBrochure}
-                  className="bg-white border border-[#0b2540] text-[#0b2540] px-5 py-3.5 rounded-xl font-bold text-xs sm:text-sm hover:bg-[#f0f3ff] transition-all flex items-center gap-2"
-                >
-                  <Download className="w-4 h-4 text-[#115eaf]" />
-                  <span>Download Admission Guide</span>
-                </button>
-                <button
-                  onClick={onOpenEmi}
-                  className="bg-[#f0f3ff] text-[#115eaf] px-4 py-3.5 rounded-xl font-bold text-xs sm:text-sm hover:bg-[#e7eeff] transition-all flex items-center gap-1"
-                >
-                  <span>Check No-Cost EMI</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
-            {/* Institutional Trust Indicator Strip */}
-            <div className="pt-6 mt-6 border-t border-[#e7eeff] flex flex-wrap items-center justify-between gap-4 text-xs text-[#43474d]">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-[#115eaf]" />
-                <span>NIRF Rank #31 Among Top Universities</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-[#115eaf]" />
-                <span>AICTE Approved MCA & MBA</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-[#115eaf]" />
-                <span>100% Online Exam Proctoring</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Urgent Notice Session Closing Card */}
-          <div className="lg:col-span-4 bg-[#0b2540] text-white rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-xl relative overflow-hidden">
-            <div className="absolute -right-8 -top-8 w-32 h-32 bg-[#115eaf]/30 rounded-full blur-2xl pointer-events-none"></div>
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-[11px] font-bold tracking-wide uppercase">
-                <Clock className="w-3.5 h-3.5" />
-                <span>Session Closing Soon</span>
-              </div>
-
-              <div className="mt-4">
-                <h2 className="text-xl font-bold text-white font-sans">
-                  Spring 2026 Batch Enrollment
-                </h2>
-                <p className="text-xs text-[#b1c8eb] mt-[7.5px] leading-relaxed">
-                  Admissions for the Spring 2026 intake are currently open. Complete your online registration and document submission early to secure your early bird tuition grant.
-                </p>
-              </div>
-
-              {/* Schedule Highlights Box */}
-              <div className="my-5 bg-white/5 border border-white/10 rounded-xl p-3.5 space-y-2.5 text-xs">
-                <div className="flex justify-between items-center">
-                  <span className="text-[#b1c8eb]">Registration Deadline:</span>
-                  <span className="font-bold text-white">31st March 2026 (Ongoing)</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-[#b1c8eb]">Grant Eligibility:</span>
-                  <span className="font-bold text-[#ffdcc3]">Up to 20% Early Bird Grant</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-[#b1c8eb]">LMS Seat Allocation:</span>
-                  <span className="font-bold text-emerald-400">Within 24 Hours</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-2.5 pt-2">
-              <button
-                onClick={() => onOpenApply()}
-                className="w-full bg-[#115eaf] text-white hover:bg-[#004689] transition-all py-3 rounded-xl text-center text-xs sm:text-sm font-bold block shadow active:scale-95"
-              >
-                Reserve My Seat Today
-              </button>
-              <p className="text-[11px] text-center text-[#768dad]">
-                100% government-recognized degree valid for jobs & higher studies
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {universityNavigation}
-
-        {/* ADMISSION HIGHLIGHTS METRIC RIBBON (4 Columns) */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-white border border-[#e7eeff] p-4 rounded-2xl flex items-center space-x-3 shadow-xs">
-            <div className="w-12 h-12 rounded-xl bg-[#f0f3ff] flex items-center justify-center text-[#115eaf] shrink-0">
-              <Laptop className="w-6 h-6" />
-            </div>
-            <div>
-              <span className="text-[11px] text-[#74777e] block uppercase tracking-wider font-normal">Program Mode</span>
-              <span className="text-base font-bold text-[#000f22] font-sans">100% Online</span>
-            </div>
-          </div>
-
-          <div className="bg-white border border-[#e7eeff] p-4 rounded-2xl flex items-center space-x-3 shadow-xs">
-            <div className="w-12 h-12 rounded-xl bg-[#f0f3ff] flex items-center justify-center text-[#115eaf] shrink-0">
-              <ShieldCheck className="w-6 h-6" />
-            </div>
-            <div>
-              <span className="text-[11px] text-[#74777e] block uppercase tracking-wider font-normal">Selection</span>
-              <span className="text-base font-bold text-[#000f22] font-sans">Merit-Based</span>
-            </div>
-          </div>
-
-          <div className="bg-white border border-[#e7eeff] p-4 rounded-2xl flex items-center space-x-3 shadow-xs">
-            <div className="w-12 h-12 rounded-xl bg-[#f0f3ff] flex items-center justify-center text-[#115eaf] shrink-0">
-              <FileText className="w-6 h-6" />
-            </div>
-            <div>
-              <span className="text-[11px] text-[#74777e] block uppercase tracking-wider font-normal">Entrance Test</span>
-              <span className="text-base font-bold text-[#000f22] font-sans">Exempt / Merit</span>
-            </div>
-          </div>
-
-          <div className="bg-white border border-[#e7eeff] p-4 rounded-2xl flex items-center space-x-3 shadow-xs">
-            <div className="w-12 h-12 rounded-xl bg-[#f0f3ff] flex items-center justify-center text-[#115eaf] shrink-0">
-              <CreditCard className="w-6 h-6" />
-            </div>
-            <div>
-              <span className="text-[11px] text-[#74777e] block uppercase tracking-wider font-normal">Reg Fee</span>
-              <span className="text-base font-bold text-[#000f22] font-sans">₹600 Only</span>
-            </div>
-          </div>
-        </section>
-
-        {/* STEP-BY-STEP ADMISSION PROCESS 2026 (From API: Section 4) */}
-        <section className="page-section">
-          <div className="text-left max-w-3xl">
-            <span className="text-xs font-bold text-[#115eaf] uppercase tracking-wider block">
-              Official Admission Flow
-            </span>
-            <h2 className="section-title text-2xl sm:text-3xl font-semibold text-[#000f22] font-sans">
-              Step-by-step admission process 2026
-            </h2>
-            <p className="section-description text-xs sm:text-sm text-[#43474d]">
-              Check the below step-by-step Lovely Professional University Online admission process 2026:
+        {/* PAGE HERO */}
+        <section className="bg-white rounded-lg border border-[#e7eeff] p-5 sm:p-6 space-y-5 shadow-xs" id="overview">
+          <div className="space-y-3">
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#000f22] tracking-tight font-sans">
+              LPU Online Admission 2026
+            </h1>
+            <p className="text-sm sm:text-base text-[#43474d] leading-relaxed font-normal">
+              {DEGREEFYD_LPU_API.admissionProcess.intro}
             </p>
           </div>
 
-          <div className="relative mt-[18px]">
-            <div className="hidden md:block absolute top-[28px] left-10 right-10 h-[2px] bg-gradient-to-r from-[#e7eeff] via-[#115eaf]/30 to-[#e7eeff]" />
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-              {DEGREEFYD_LPU_API.admissionProcess.steps.map((st, i, arr) => (
-                <div key={st.stepNum} className="relative group">
-                  <div className="bg-white border border-[#e7eeff] p-5 rounded-2xl shadow-sm hover:shadow-md hover:border-[#115eaf] transition-all h-full z-10 relative group-hover:-translate-y-1">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#115eaf] to-[#004689] opacity-0 group-hover:opacity-100 rounded-t-2xl transition-opacity" />
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-14 h-14 rounded-full bg-[#f0f3ff] text-[#115eaf] font-extrabold text-lg flex items-center justify-center shadow-sm group-hover:bg-[#115eaf] group-hover:text-white transition-colors border-[4px] border-white ring-1 ring-[#e7eeff] group-hover:ring-[#115eaf]/50">
-                        0{st.stepNum}
-                      </div>
-                      <CheckCircle className="w-5 h-5 text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                    <h3 className="font-bold text-[15px] text-[#000f22] font-sans mb-2 group-hover:text-[#115eaf] transition-colors">{st.title}</h3>
-                    <p className="mt-[7.5px] text-xs sm:text-sm text-[#43474d] leading-relaxed">
-                      {st.description}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 bg-[#f0f3ff] p-4 rounded-lg border border-[#e7eeff]">
+            <div className="space-y-1 border-r border-[#c4c6ce] pr-2">
+              <span className="text-xs font-normal text-[#74777e] block">Admission Status</span>
+              <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded text-[11px] font-semibold bg-[#DCFCE7] text-[#166534] border border-[#BBF7D0]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
+                {DEGREEFYD_LPU_API.importantDates[0].date}
+              </span>
+            </div>
+            <div className="space-y-1 md:border-r border-[#c4c6ce] px-1 md:px-2">
+              <span className="text-xs font-normal text-[#74777e] block">Mode of Application</span>
+              <span className="text-base font-semibold text-[#000f22]">Online</span>
+            </div>
+            <div className="space-y-1 border-r border-[#c4c6ce] px-1 md:px-2">
+              <span className="text-xs font-normal text-[#74777e] block">Admission Criteria</span>
+              <span className="text-base font-semibold text-[#000f22]">Merit-based</span>
+            </div>
+            <div className="space-y-1 pl-1 md:pl-2">
+              <span className="text-xs font-normal text-[#74777e] block">Registration Fee</span>
+              <span className="text-base font-bold text-[#115eaf]">₹600</span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <button
+              onClick={() => onOpenApply()}
+              className="bg-[#115eaf] hover:bg-[#084A8C] text-white px-5 py-2.5 rounded font-semibold text-sm transition-colors shadow-sm"
+            >
+              Apply Now
+            </button>
+            <button
+              onClick={onOpenBrochure}
+              className="bg-white hover:bg-[#EFF6FF] text-[#0b2540] border border-[#0b2540] px-5 py-2.5 rounded font-semibold text-sm transition-colors inline-flex items-center gap-1.5"
+            >
+              <Download className="w-4 h-4 text-[#115eaf]" />
+              Download Brochure
+            </button>
+          </div>
+        </section>
+        {universityNavigation}
+
+        {/* LPU ONLINE ADMISSION PROCESS 2026 */}
+        <section className="page-section" id="admission-process">
+          <div className="mb-5 text-left">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#000f22] font-sans">
+              LPU Online Admission Process 2026
+            </h2>
+            <p className="mt-2 text-sm text-[#43474d] leading-relaxed font-normal">
+              {DEGREEFYD_LPU_API.admissionProcess.intro}
+            </p>
+          </div>
+
+          <div className="relative">
+            <div className="hidden md:block absolute top-4 left-[10%] right-[10%] h-px bg-[#d5e3ff]" />
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-4">
+              {DEGREEFYD_LPU_API.admissionProcess.steps.map((step, index, steps) => (
+                <div key={step.stepNum} className="relative flex items-start gap-3 md:flex-col md:items-center md:gap-0">
+                  {index < steps.length - 1 && (
+                    <div className="absolute left-4 top-8 bottom-[-12px] w-px bg-[#d5e3ff] md:hidden" />
+                  )}
+                  <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#115eaf] bg-white text-xs font-semibold text-[#115eaf] md:mb-3">
+                    {String(step.stepNum).padStart(2, '0')}
+                  </span>
+                  <div className="min-w-0 flex-1 rounded-lg border border-[#e7eeff] bg-white p-3.5 md:w-full md:flex-none">
+                    <h3 className="mb-1.5 text-sm font-semibold text-[#000f22] font-sans">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-[#43474d] font-normal">
+                      {step.description}
                     </p>
                   </div>
-                  {i < arr.length - 1 && (
-                    <div className="hidden md:block absolute top-[22px] -right-[15px] z-20 text-[#115eaf]/40">
-                      <ChevronRight className="w-6 h-6" />
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
@@ -277,7 +147,7 @@ export const AdmissionView: React.FC<AdmissionViewProps> = ({
           <div className="flex flex-col md:flex-row justify-between md:items-center gap-2 border-b border-[#e7eeff] pb-4">
             <div className="text-left">
               <span className="text-xs font-bold text-[#115eaf] uppercase tracking-wider block">Admission Criteria</span>
-              <h2 className="section-title text-xl sm:text-2xl font-extrabold text-[#000f22] font-sans">
+              <h2 className="section-title text-xl sm:text-2xl font-bold text-[#000f22] font-sans">
                 LPU Online Eligibility and Selection Criteria
               </h2>
             </div>
